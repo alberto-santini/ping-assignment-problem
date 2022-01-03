@@ -149,7 +149,7 @@ class ColumnGenerationSolver:
         cst_matrix_1 = [c.base_col for c in self.column_pool]
         rhs_1 = [1] * self.m
 
-        self.model.addMConstr(np.array(cst_matrix_1).T, self.model.getVars(), '=', rhs_1)
+        self.model.addMConstr(np.array(cst_matrix_1).T, self.model.getVars(), '<=', rhs_1)
         self.model.update()
 
         cst_matrix_2 = [c.pos_col for c in self.column_pool]
