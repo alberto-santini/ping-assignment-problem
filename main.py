@@ -1,6 +1,7 @@
 from pa_instance import PAInstance
 from solvers.qap import QAPSolver
 from solvers.colgen import ColumnGenerationSolver
+from solvers.linear import LinearSolver
 
 if __name__ == '__main__':
     instance = PAInstance.get_random(num_items_hint=12, num_bases=3)
@@ -19,3 +20,10 @@ if __name__ == '__main__':
 
     print('=== COLUMN GENERATION SOLUTION ===')
     print(sol2)
+
+    solver3 = LinearSolver(instance=instance)
+    sol3 = solver3.solve()
+
+    print('=== LINEAR TIME ALGORITHM SOLUTION ===')
+    print(sol3)
+    
